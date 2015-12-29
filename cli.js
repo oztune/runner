@@ -29,6 +29,9 @@ if (key !== 'all') {
 	var obj = key && items[key]
 	if (obj == undefined) {
 		console.log(`${key ? `The key '${key}' isn't defined in ${dataPath}` : 'Please provide a key as the last argument'}. Use '${keys.join(`', '`)}' to run a single one, or 'all' to iterate over all of them.`)
+		if (!key) {
+			console.log(`The list of keys is based on ${dataPath}`)
+		}
 		promise = Promise.resolve()
 	} else {
 		promise = goSerial(command, [key])
